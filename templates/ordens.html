@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Ordens de Serviço</title>
+</head>
+<body>
+    <h1>Ordens de Serviço</h1>
+    <a href="{{ url_for('nova_ordem') }}">Nova Ordem</a> |
+    <a href="{{ url_for('index') }}">Voltar</a>
+    <form method="GET" action="{{ url_for('ordens') }}">
+    <input type="text" name="q" placeholder="Buscar OS..." value="{{ request.args.get('q', '') }}">
+    <button type="submit">Pesquisar</button>
+</form>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th><th>ID Cliente</th><th>Descrição</th><th>Setor</th><th>Status</th><th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ordem in ordens %}
+            <tr>
+                <td>{{ ordem[0] }}</td>
+                <td>{{ ordem[1] }}</td>
+                <td>{{ ordem[2] }}</td>
+                <td>{{ ordem[3] }}</td>
+                <td>{{ ordem[4] }}</td>
+                <td>
+                    <a href="{{ url_for('editar_ordem', id=ordem[0]) }}">Editar</a>
+                    <form action="{{ url_for('deletar_ordem_route', id=ordem[0]) }}" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Confirma exclusão?')">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">Nenhuma ordem cadastrada.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

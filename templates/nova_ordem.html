@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Nova Ordem de Serviço</title>
+</head>
+<body>
+    <h1>Nova Ordem de Serviço</h1>
+    <form method="post">
+        <label>ID Cliente: <input type="number" name="cliente_id" required></label><br>
+        <label>Descrição: <input type="text" name="descricao" required></label><br>
+        <label>Setor: 
+    <select name="setor" required>
+        <option value="Arte">Arte</option>
+        <option value="Impressão">Impressão</option>
+        <option value="Corte">Corte</option>
+        <option value="Acabamento">Acabamento</option>
+        <option value="Expedição">Expedição</option>
+    </select>
+</label><br>
+        <label>Status: 
+            <select name="status" required>
+                <option value="Pendente">Pendente</option>
+                <option value="Em andamento">Em andamento</option>
+                <option value="Concluído">Concluído</option>
+            </select>
+        </label><br>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{{ url_for('ordens') }}">Voltar</a>
+</body>
+</html>

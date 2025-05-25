@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Editar Ordem de Serviço</title>
+</head>
+<body>
+    <h1>Editar Ordem de Serviço</h1>
+    <form method="post">
+        <label>ID Cliente: <input type="number" name="cliente_id" value="{{ ordem[1] }}" required></label><br>
+        <label>Descrição: <input type="text" name="descricao" value="{{ ordem[2] }}" required></label><br>
+        <label>Status: 
+            <select name="status" required>
+                <option value="Pendente" {% if ordem[3] == 'Pendente' %}selected{% endif %}>Pendente</option>
+                <option value="Em andamento" {% if ordem[3] == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+                <option value="Concluído" {% if ordem[3] == 'Concluído' %}selected{% endif %}>Concluído</option>
+            </select>
+        </label><br>
+        <button type="submit">Atualizar</button>
+    </form>
+    <a href="{{ url_for('ordens') }}">Voltar</a>
+</body>
+</html>
