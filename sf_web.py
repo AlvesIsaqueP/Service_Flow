@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
+from funcoes import criar_tabelas
+criar_tabelas()
 from funcoes import (
     adicionar_cliente,
     buscar_ordens,
@@ -103,3 +105,4 @@ def deletar_ordem_route(id):
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
