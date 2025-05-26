@@ -1,11 +1,12 @@
 import sqlite3
 from datetime import datetime
-
+import psycopg2
+import os
 
 DB_PATH = 'sf.db'
 
 def conectar():
-    return sqlite3.connect(DB_PATH)
+    return psycopg2.connect(os.getenv("DATABASE_URL"))
 
 # CLIENTES
 def adicionar_cliente(nome, telefone, email, endereco):
