@@ -21,14 +21,14 @@
         <tbody>
             {% for ordem in ordens %}
             <tr>
-                <td>{{ ordem[0] }}</td>
-                <td>{{ ordem[1] }}</td>
-                <td>{{ ordem[2] }}</td>
-                <td>{{ ordem[3] }}</td>
+                <td>{{ ordem[Cliente] }}</td>
+                <td>{{ ordem[Descrição] }}</td>
+                <td>{{ ordem[Setor] }}</td>
+                <td>{{ ordem[Status] }}</td>
                 <td>{{ ordem[4] }}</td>
                 <td>
-                    <a href="{{ url_for('editar_ordem', id=ordem[0]) }}">Editar</a>
-                    <form action="{{ url_for('deletar_ordem_route', id=ordem[0]) }}" method="post" style="display:inline;">
+                    <a href="{{ url_for('editar_ordem', id=ordem['id']) }}">Editar</a>
+                    <form action="{{ url_for('deletar_ordem_route', id=ordem[Cliente]) }}" method="post" style="display:inline;">
                         <button type="submit" onclick="return confirm('Confirma exclusão?')">Deletar</button>
                     </form>
                 </td>
