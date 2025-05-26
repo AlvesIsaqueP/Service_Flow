@@ -28,7 +28,7 @@
                 <td>{{ ordem[4] }}</td>
                 <td>
                     <a href="{{ url_for('editar_ordem', id=ordem['id']) }}">Editar</a>
-                    <form action="{{ url_for('deletar_ordem_route', id=ordem[Cliente]) }}" method="post" style="display:inline;">
+                    <form action="{{ url_for('deletar_ordem_route', id=ordem['id']) }}" method="post" style="display:inline;">
                         <button type="submit" onclick="return confirm('Confirma exclusão?')">Deletar</button>
                     </form>
                 </td>
