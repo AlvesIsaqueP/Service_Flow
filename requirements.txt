@@ -1,3 +1,4 @@
 Flask
 ttkbootstrap
 gunicorn
+psycopg2-binary
